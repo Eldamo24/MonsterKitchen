@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
 
     [Header("Switch Player")]
-    [SerializeField] private GameObject cam1;
-    [SerializeField] private GameObject chef;
-    [SerializeField] private GameObject cam2;
-    [SerializeField] private GameObject waiter;
+    [SerializeField] private PlayerInput chefInput;
+    [SerializeField] private PlayerController chefController;
+    [SerializeField] private PlayerInput waiterInput;
+    [SerializeField] private PlayerController waiterController;
 
     void Start()
     {
@@ -45,19 +45,19 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (chef.activeSelf)
+            if (chefController.isActiveAndEnabled)
             {
-                cam1.SetActive(false);
-                chef.SetActive(false);
-                cam2.SetActive(true);
-                waiter.SetActive(true);
+                chefController.enabled = false;
+                chefInput.enabled = false;
+                waiterController.enabled = true;
+                waiterInput.enabled = true;
             }
             else
             {
-                cam2.SetActive(false);
-                waiter.SetActive(false);
-                cam1.SetActive(true);
-                chef.SetActive(true);
+                waiterController.enabled = false;
+                waiterInput.enabled = false;
+                chefController.enabled = true;
+                chefInput.enabled = true;
             }
         }
     }
