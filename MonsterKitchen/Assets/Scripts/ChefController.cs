@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,6 +23,11 @@ public class ChefController : MonoBehaviour
     [SerializeField] TMP_Text ingredients;
     private float satisfaction = 100;
 
+    [SerializeField] List<KeyCode> keysToPress;
+    [SerializeField] List<KeyCode> keysPressedByUser;
+
+    private bool cutting = false;
+
     public List<SOReceta> Orders { get => orders; set => orders = value; }
     public List<string> SelectedIngredients { get => selectedIngredients; set => selectedIngredients = value; }
 
@@ -38,6 +44,16 @@ public class ChefController : MonoBehaviour
         if (startCook)
         {
             StartCooking();
+        }
+        if (cutting)
+        {
+            foreach (KeyCode keyCode in Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKeyDown(keyCode))
+                {
+                    keysPressedByUser.Add(keyCode);
+                }
+            }
         }
     }
 
@@ -90,7 +106,8 @@ public class ChefController : MonoBehaviour
             seconds--;
             timer.text = seconds.ToString();
         }
-        if(selectedIngredients.Count != 4)
+        CanClickIngredients();
+        if (selectedIngredients.Count != 4)
         {
             satisfaction -= 25f;
             timer.text = "Well... it could be better...";
@@ -110,11 +127,94 @@ public class ChefController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         timer.text = "";
         ingredients.text = "";
-        CanClickIngredients();
-        orders.RemoveAt(0);
-        gameStarted = false;
-        selectedIngredients = null;
+        StartCoroutine("CutIngredients");
     }
+
+    IEnumerator CutIngredients()
+    {
+        timer.text = "Prepare to cut the ingredientes...";
+        yield return new WaitForSeconds(3f);
+        timer.text = "Repeat the keys in order to cut";
+        yield return new WaitForSeconds(3f);
+        timer.text = "Prepare to start... ";
+        yield return new WaitForSeconds(3f);
+        for(int j=0; j< selectedIngredients.Count; j++)
+        {
+            float time = 5f;
+            string keysToCopy = "";
+            timer.text = "Cut the " + selectedIngredients[j];
+            yield return new WaitForSeconds(2f);
+            int keys = UnityEngine.Random.Range(5, 11);
+            for (int i = 0; i < keys; i++)
+            {
+                int key = UnityEngine.Random.Range(0, 4);
+                switch (key)
+                {
+                    case 0:
+                        keysToPress.Add(KeyCode.J);
+                        break;
+                    case 1:
+                        keysToPress.Add(KeyCode.K);
+                        break;
+                    case 2:
+                        keysToPress.Add(KeyCode.L);
+                        break;
+                    case 3:
+                        keysToPress.Add(KeyCode.I);
+                        break;
+                }
+                keysToCopy +=" " + keysToPress[i].ToString();
+            }
+            timer.text = keysToCopy;
+            yield return new WaitForSeconds(5f);
+            timer.text = "Cut!";
+            yield return new WaitForSeconds(1f);
+            cutting = true;
+            while (time > 0)
+            {
+                timer.text = time.ToString();
+                yield return new WaitForSeconds(1f);
+                time--;
+            }
+            cutting = false;
+            if (keysToPress.Count != keysPressedByUser.Count)
+            {
+                timer.text = "You have failed...";
+                satisfaction -= 10;
+            }
+            else
+            {
+                for (int i = 0; i < keysPressedByUser.Count; i++)
+                {
+                    int count = 0;
+                    if (keysPressedByUser[i].ToString() != keysToPress[i].ToString())
+                    {
+                        count++;
+                        timer.text = "You missed " + count;
+                        satisfaction -= 10;
+                    }
+                }
+            }
+            keysPressedByUser.Clear();
+            keysToPress.Clear();
+            yield return new WaitForSeconds(2f);
+        }
+        yield return new WaitForSeconds(3f);
+        timer.text = "";
+        gameStarted = false;
+        selectedIngredients.Clear();
+        orders.RemoveAt(0);
+
+    }
+
+    //void OnGUI()
+    //{
+    //    Event e = Event.current;
+    //    if (e.type == EventType.KeyDown && cutting)
+    //    {
+    //        keysPressedByUser.Add(e.keyCode); 
+    //    }
+    //}
 
     void CanClickIngredients()
     {
