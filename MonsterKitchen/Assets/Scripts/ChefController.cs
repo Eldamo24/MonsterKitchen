@@ -180,6 +180,7 @@ public class ChefController : MonoBehaviour
             if (keysToPress.Count != keysPressedByUser.Count)
             {
                 timer.text = "You have failed...";
+                yield return new WaitForSeconds(2f);
                 satisfaction -= 10;
             }
             else
@@ -191,10 +192,12 @@ public class ChefController : MonoBehaviour
                     {
                         count++;
                         timer.text = "You missed " + count;
+                        yield return new WaitForSeconds(2f);
                         satisfaction -= 10;
                     }
                 }
             }
+            timer.text = "";
             keysPressedByUser.Clear();
             keysToPress.Clear();
             yield return new WaitForSeconds(2f);
