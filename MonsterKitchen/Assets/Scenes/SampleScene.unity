@@ -2621,11 +2621,14 @@ MonoBehaviour:
   waiterController: {fileID: 1515226332}
   orders:
   - {fileID: 11400000, guid: 3da146a2ace39e04fb3fbaecff14a3b6, type: 2}
+  - {fileID: 11400000, guid: 3da146a2ace39e04fb3fbaecff14a3b6, type: 2}
   selectedIngredients: []
   startCook: 0
   gameStarted: 0
   timer: {fileID: 834916651}
   ingredients: {fileID: 1792613218}
+  keysToPress: 
+  keysPressedByUser: 
 --- !u!1 &1726085393
 GameObject:
   m_ObjectHideFlags: 0
