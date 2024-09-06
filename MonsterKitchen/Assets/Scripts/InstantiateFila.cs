@@ -21,9 +21,9 @@ public class InstantiateFila : MonoBehaviour
 
     IEnumerator InstantiatePeople()
     {
-        for(int i = 0; i <= tables.Length; i++)
+        for(int i = 0; i < tables.Length; i++)
         {
-            int seconds = Random.Range(10, 31);
+            int seconds = Random.Range(5, 20);
             Instantiate(client, instancePosition.position, instancePosition.rotation);
             yield return new WaitForSeconds(seconds);
         }

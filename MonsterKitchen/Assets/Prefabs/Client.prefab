@@ -133,9 +133,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &1474346626967974759
 MonoBehaviour:
@@ -154,8 +154,6 @@ MonoBehaviour:
   waitForATable: 1
   text: {fileID: 0}
   temporizador: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
-  headPosition: {fileID: 0}
 --- !u!1 &1779379391180711426
 GameObject:
   m_ObjectHideFlags: 0
