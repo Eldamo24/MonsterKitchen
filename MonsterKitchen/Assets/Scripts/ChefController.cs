@@ -26,6 +26,9 @@ public class ChefController : MonoBehaviour
     [SerializeField] List<KeyCode> keysToPress;
     [SerializeField] List<KeyCode> keysPressedByUser;
 
+    [SerializeField] private Transform[] platesPosition;
+    [SerializeField] private GameObject plate;
+
     private bool cutting = false;
 
     public List<SOReceta> Orders { get => orders; set => orders = value; }
@@ -207,7 +210,15 @@ public class ChefController : MonoBehaviour
         gameStarted = false;
         selectedIngredients.Clear();
         orders.RemoveAt(0);
-
+        foreach(Transform platePosition in platesPosition)
+        {
+            if (platePosition.gameObject.GetComponent<PlatePositions>().IsEmpty)
+            {
+                Instantiate(plate, platePosition.position, Quaternion.identity);
+                platePosition.gameObject.GetComponent<PlatePositions>().IsEmpty = false;
+                break;
+            }
+        }
     }
 
     //void OnGUI()
