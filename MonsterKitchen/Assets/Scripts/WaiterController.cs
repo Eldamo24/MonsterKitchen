@@ -17,6 +17,7 @@ public class WaiterController : MonoBehaviour
     [SerializeField] private ChefController chefController;
     [SerializeField] private PlayerInput waiterInput;
     [SerializeField] private WaiterController waiterController;
+    private Animator anim;
 
     [SerializeField] private TMP_Text chancesOnScreen;
 
@@ -32,6 +33,7 @@ public class WaiterController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         hasAPlate = false;
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -48,10 +50,15 @@ public class WaiterController : MonoBehaviour
         rb.MovePosition(rb.position + moveDir * speedMovement * Time.deltaTime);
         if (moveDir != Vector3.zero)
         {
+            anim.SetBool("Walking", true);
             Quaternion rotation = Quaternion.LookRotation(moveDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         }
-        if(chances <= 0)
+        else
+        {
+            anim.SetBool("Walking", false);
+        }
+        if (chances <= 0)
         {
             //Volver al menu
         }
