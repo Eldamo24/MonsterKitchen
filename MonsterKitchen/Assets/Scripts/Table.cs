@@ -11,6 +11,7 @@ public class Table : MonoBehaviour
     private int flag = 0;
     private bool triggering = false;
     private ChefController chef;
+    private Coroutine coroutine;
 
     public bool IsEmpty { get => isEmpty; set => isEmpty = value; }
 
@@ -26,11 +27,13 @@ public class Table : MonoBehaviour
         {
             if(triggering && Input.GetKeyDown(KeyCode.E))
             {
-                int index = Random.Range(0, menu.Length - 1);
+                if(coroutine != null)
+                    client.StopCoroutine(coroutine);
+                int index = Random.Range(0, menu.Length);
                 chef.Orders.Add(menu[index]);
                 flag = 0;
                 client.Text.text = "";
-                StopCoroutine(client.WaitingToOrder());
+                client.Temporizador.text = "";
                 StartCoroutine(client.WaitToEat());
             }
         }
@@ -43,7 +46,7 @@ public class Table : MonoBehaviour
             flag = 1;
             client = other.gameObject.GetComponent<ClientController>();
             client.WaitForOrder = true;
-            client.StartCoroutine(client.WaitingToOrder());
+            coroutine = client.StartCoroutine(client.WaitingToOrder());
         }
     }
 

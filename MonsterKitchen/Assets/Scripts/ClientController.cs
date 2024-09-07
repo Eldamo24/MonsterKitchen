@@ -23,6 +23,7 @@ public class ClientController : MonoBehaviour
     public bool WaitForOrder { get => waitForOrder; set => waitForOrder = value; }
     public TMP_Text Text { get => text; set => text = value; }
     public int WaitToOrder { get => waitToOrder; set => waitToOrder = value; }
+    public TMP_Text Temporizador { get => temporizador; set => temporizador = value; }
 
     private void OnEnable()
     {
@@ -173,10 +174,10 @@ public class ClientController : MonoBehaviour
 
     public IEnumerator WaitToEat()
     {
-        int waitFood = Random.Range(60, 81);
+        int waitFood = Random.Range(220, 251);
         while (waitFood > 0)
         {
-            text.text = waitFood.ToString();
+            temporizador.text = waitFood.ToString();
             yield return new WaitForSeconds(1f);
             waitFood--;
         }
