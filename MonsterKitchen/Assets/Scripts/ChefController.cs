@@ -12,6 +12,7 @@ public class ChefController : MonoBehaviour
     [SerializeField] private ChefController chefController;
     [SerializeField] private PlayerInput waiterInput;
     [SerializeField] private WaiterController waiterController;
+    private Animator anim;
 
     [Header("Orders")]
     [SerializeField] private List<SOReceta> orders;
@@ -33,6 +34,11 @@ public class ChefController : MonoBehaviour
 
     public List<SOReceta> Orders { get => orders; set => orders = value; }
     public List<string> SelectedIngredients { get => selectedIngredients; set => selectedIngredients = value; }
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -86,6 +92,7 @@ public class ChefController : MonoBehaviour
     {
         if (!gameStarted)
         {
+            anim.SetBool("Cooking", true);
             gameStarted = true;
             timer.text = "We are going to prepare: " + orders[0].nameReceta;
             ingredients.text = orders[0].ingredient1 + "\n" + orders[0].ingredient2 + "\n" + orders[0].ingredient3 + "\n" + orders[0].ingredient4;
@@ -219,6 +226,7 @@ public class ChefController : MonoBehaviour
                 break;
             }
         }
+        anim.SetBool("Cooking", false);
     }
 
     void CanClickIngredients()
