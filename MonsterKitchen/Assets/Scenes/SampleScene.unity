@@ -2823,7 +2823,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tables: []
-  client: {fileID: 480917671806585805, guid: 47cf17f388da97f489a90381f0de4a65, type: 3}
+  client:
+  - {fileID: 4632886295490109977, guid: 19714f685b10fe14d95cbfe20be03eef, type: 3}
+  - {fileID: 7410637731124662283, guid: 4996d17f69b72ac4d88d12ed6e4d297d, type: 3}
+  - {fileID: 4951394603956183798, guid: 05ad3c29fc26fcf43b3529aa7505cb94, type: 3}
+  - {fileID: 5067761495810000995, guid: 4ae3bcb85d02f8f4ca1028979e4496c3, type: 3}
   instancePosition: {fileID: 1104256679}
 --- !u!1 &1118202264
 GameObject:

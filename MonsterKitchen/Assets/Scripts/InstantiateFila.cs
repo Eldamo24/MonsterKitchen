@@ -5,7 +5,7 @@ using UnityEngine;
 public class InstantiateFila : MonoBehaviour
 {
     [SerializeField] private Table[] tables;
-    [SerializeField] private GameObject client;
+    [SerializeField] private GameObject[] client;
     [SerializeField] private Transform instancePosition;
 
     private void Start()
@@ -26,7 +26,8 @@ public class InstantiateFila : MonoBehaviour
             if (tables[i].IsEmpty)
             {
                 int seconds = Random.Range(15, 31);
-                Instantiate(client, instancePosition.position, instancePosition.rotation);
+                int index = Random.Range(0, client.Length);
+                Instantiate(client[index], instancePosition.position, instancePosition.rotation);
                 yield return new WaitForSeconds(seconds);
             }
         }
