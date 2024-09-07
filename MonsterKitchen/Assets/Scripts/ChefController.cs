@@ -221,15 +221,6 @@ public class ChefController : MonoBehaviour
         }
     }
 
-    //void OnGUI()
-    //{
-    //    Event e = Event.current;
-    //    if (e.type == EventType.KeyDown && cutting)
-    //    {
-    //        keysPressedByUser.Add(e.keyCode); 
-    //    }
-    //}
-
     void CanClickIngredients()
     {
         IngredientsController[] ingrController = FindObjectsOfType<IngredientsController>();
@@ -275,4 +266,8 @@ public class ChefController : MonoBehaviour
         return count;
     }
 
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
 }

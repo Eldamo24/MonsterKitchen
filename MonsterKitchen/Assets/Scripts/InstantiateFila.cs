@@ -23,10 +23,18 @@ public class InstantiateFila : MonoBehaviour
     {
         for(int i = 0; i < tables.Length; i++)
         {
-            int seconds = Random.Range(5, 20);
-            Instantiate(client, instancePosition.position, instancePosition.rotation);
-            yield return new WaitForSeconds(seconds);
+            if (tables[i].IsEmpty)
+            {
+                int seconds = Random.Range(15, 31);
+                Instantiate(client, instancePosition.position, instancePosition.rotation);
+                yield return new WaitForSeconds(seconds);
+            }
         }
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 
 

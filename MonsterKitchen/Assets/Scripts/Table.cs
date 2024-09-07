@@ -23,6 +23,10 @@ public class Table : MonoBehaviour
 
     private void Update()
     {
+        if (isEmpty)
+        {
+            flag = 0;
+        }
         if(flag == 1)
         {
             if(triggering && Input.GetKeyDown(KeyCode.E))
@@ -47,6 +51,16 @@ public class Table : MonoBehaviour
             client = other.gameObject.GetComponent<ClientController>();
             client.WaitForOrder = true;
             coroutine = client.StartCoroutine(client.WaitingToOrder());
+        }
+        if(other.gameObject.CompareTag("Player"))
+        {
+            WaiterController waiter = other.gameObject.GetComponent<WaiterController>();
+            waiter.HasAPlate = false;
+            Destroy(GameObject.Find("Hand").GetComponentInChildren<Plate>().gameObject);
+            Destroy(client.gameObject);
+            isEmpty = true;
+            flag = 0;
+            FindObjectOfType<InstantiateFila>().GetTables();
         }
     }
 

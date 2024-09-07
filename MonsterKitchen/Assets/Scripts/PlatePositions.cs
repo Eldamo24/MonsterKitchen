@@ -13,6 +13,14 @@ public class PlatePositions : MonoBehaviour
         isEmpty = true;
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Plate"))
+        {
+            isEmpty = true;
+        }
+    }
+
 
 
 }

@@ -10,6 +10,7 @@ public class Plate : MonoBehaviour
     private int flag = 0;
     private Transform hand;
     private bool triggering;
+    WaiterController controller;
 
     private void Start()
     {
@@ -21,15 +22,17 @@ public class Plate : MonoBehaviour
     {
         if(flag == 0 && triggering)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !controller.HasAPlate)
             {
                 text.text = "";
                 flag = 1;
+                controller.HasAPlate = true;
             }
         }
         else if(flag == 1)
         {
             transform.position = hand.position; 
+            transform.parent = hand.transform;
         }
     }
 
@@ -41,7 +44,7 @@ public class Plate : MonoBehaviour
         {
             text.text = "E to interact";
             triggering = true;
-            
+            controller = other.gameObject.GetComponent<WaiterController>();
         }
     }
 
@@ -51,6 +54,7 @@ public class Plate : MonoBehaviour
         {
             triggering = false;
             text.text = "";
+            controller = null;
         }
     }
 }

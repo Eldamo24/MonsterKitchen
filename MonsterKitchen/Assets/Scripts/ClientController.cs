@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,6 +13,7 @@ public class ClientController : MonoBehaviour
     [SerializeField] private bool waitForATable;
     [SerializeField] private TMP_Text text;
     [SerializeField] private TMP_Text temporizador;
+    private Table table; 
     private bool waitForOrder;
     private Transform chairPosition;
     private bool canInteract = true;
@@ -85,6 +88,10 @@ public class ClientController : MonoBehaviour
                 StartCoroutine("WaitingTable");
             }
         }
+        else if (other.gameObject.CompareTag("Table"))
+        {
+            table = other.gameObject.GetComponent<Table>();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -100,25 +107,6 @@ public class ClientController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collisioning = true;
-            //if (timeToWaitTable > 0 && Input.GetKeyDown(KeyCode.E) && canInteract)
-            //{
-                
-            //    canInteract = false;
-            //    timeToWaitTable = 0;
-            //    StopCoroutine("WaitingTable");
-            //    temporizador.text = "";
-            //    Table[] tables = FindObjectsOfType<Table>();
-            //    foreach (Table table in tables)
-            //    {
-            //        if (table.IsEmpty)
-            //        {
-            //            table.IsEmpty = false;
-            //            waitForATable = false;
-            //            chairPosition = table.gameObject.GetComponentInChildren<Transform>();
-            //            break;
-            //        }
-            //    }
-            //}
         }
     }
 
@@ -142,6 +130,8 @@ public class ClientController : MonoBehaviour
         }
         if(timeToWaitTable <= 0)
         {
+            FindObjectOfType<InstantiateFila>().GetTables();
+            FindObjectOfType<WaiterController>().Chances--;
             Destroy(gameObject);
         }
     }
@@ -168,6 +158,9 @@ public class ClientController : MonoBehaviour
         }
         if(waitToOrder <= 0)
         {
+            table.IsEmpty = true;
+            FindObjectOfType<InstantiateFila>().GetTables();
+            FindObjectOfType<WaiterController>().Chances--;
             Destroy(gameObject);
         }
     }
@@ -183,7 +176,11 @@ public class ClientController : MonoBehaviour
         }
         if (waitFood <= 0)
         {
+            table.IsEmpty = true;
+            FindObjectOfType<InstantiateFila>().GetTables();
+            FindObjectOfType<WaiterController>().Chances--;
             Destroy(gameObject);
         }
     }
+
 }
