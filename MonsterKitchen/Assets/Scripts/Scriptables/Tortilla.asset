@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1626111eb9ff7db4897abfa2eb226196, type: 3}
-  m_Name: EyesWithVegetables
+  m_Name: Tortilla
   m_EditorClassIdentifier: 
-  name: Eyes With Vegetables
-  ingredient1: Eyes
-  ingredient2: Tomatoe
-  ingredient3: Lettuce
-  ingredient4: Carrot
+  nameReceta: Tortilla
+  ingredient1: Hoja de lobo
+  ingredient2: Piel de muerto
+  ingredient3: Hoja de lobo
+  ingredient4: Piel de muerto

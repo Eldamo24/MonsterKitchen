@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1474346626967974759}
   m_Layer: 0
   m_Name: Client
-  m_TagString: Untagged
+  m_TagString: Client
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   waitForATable: 1
   text: {fileID: 0}
   temporizador: {fileID: 0}
+  recetas: []
 --- !u!1 &1779379391180711426
 GameObject:
   m_ObjectHideFlags: 0

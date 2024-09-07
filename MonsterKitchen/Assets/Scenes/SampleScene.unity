@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 137494050}
   - component: {fileID: 137494049}
   - component: {fileID: 137494053}
+  - component: {fileID: 137494054}
   m_Layer: 0
   m_Name: Mesa
   m_TagString: Table
@@ -518,6 +519,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714a4f1468af4d54b9c336d5f9b4c0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu:
+  - {fileID: 11400000, guid: 889ff087ad909bf43bee6853794743b7, type: 2}
+  - {fileID: 11400000, guid: 11a57582ef1641541a0fd8a7306e182c, type: 2}
+  - {fileID: 11400000, guid: 6cf3af80409597d45bcc77089c8ea6b8, type: 2}
+  - {fileID: 11400000, guid: 3da146a2ace39e04fb3fbaecff14a3b6, type: 2}
+  - {fileID: 11400000, guid: 89bb3c918004d0a41bb20b6b94c9e33c, type: 2}
+--- !u!65 &137494054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137494048}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &185532498
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +843,7 @@ GameObject:
   - component: {fileID: 407221653}
   - component: {fileID: 407221652}
   - component: {fileID: 407221656}
+  - component: {fileID: 407221657}
   m_Layer: 0
   m_Name: Mesa
   m_TagString: Table
@@ -921,6 +950,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714a4f1468af4d54b9c336d5f9b4c0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu:
+  - {fileID: 11400000, guid: 889ff087ad909bf43bee6853794743b7, type: 2}
+  - {fileID: 11400000, guid: 11a57582ef1641541a0fd8a7306e182c, type: 2}
+  - {fileID: 11400000, guid: 6cf3af80409597d45bcc77089c8ea6b8, type: 2}
+  - {fileID: 11400000, guid: 3da146a2ace39e04fb3fbaecff14a3b6, type: 2}
+  - {fileID: 11400000, guid: 89bb3c918004d0a41bb20b6b94c9e33c, type: 2}
+--- !u!65 &407221657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407221651}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &541847024
 GameObject:
   m_ObjectHideFlags: 0
