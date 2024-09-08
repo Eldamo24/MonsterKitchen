@@ -19,14 +19,14 @@ public class WaiterController : MonoBehaviour
     [SerializeField] private WaiterController waiterController;
     private Animator anim;
 
-    [SerializeField] private TMP_Text chancesOnScreen;
+    
 
-    private int chances = 5;
+    
 
     private bool hasAPlate;
 
     public bool HasAPlate { get => hasAPlate; set => hasAPlate = value; }
-    public int Chances { get => chances; set => chances = value; }
+    
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class WaiterController : MonoBehaviour
 
     void Movement()
     {
-        chancesOnScreen.text = "Chances: " + chances.ToString();
+        
         Vector2 input = playerInput.actions["Movement"].ReadValue<Vector2>();
         Vector3 moveDir = new Vector3(input.x, 0, input.y);
         moveDir.Normalize();
@@ -58,10 +58,7 @@ public class WaiterController : MonoBehaviour
         {
             anim.SetBool("Walking", false);
         }
-        if (chances <= 0)
-        {
-            //Volver al menu
-        }
+        
     }
 
     public void SwitchPlayer(InputAction.CallbackContext context)

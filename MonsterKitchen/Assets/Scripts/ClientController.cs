@@ -19,6 +19,7 @@ public class ClientController : MonoBehaviour
     private bool canInteract = true;
     private bool collisioning = false;
 
+
     private int timeToWaitTable;
     private int timeToWaitToOrder;
     private int waitToOrder = 0;
@@ -27,6 +28,7 @@ public class ClientController : MonoBehaviour
     public TMP_Text Text { get => text; set => text = value; }
     public int WaitToOrder { get => waitToOrder; set => waitToOrder = value; }
     public TMP_Text Temporizador { get => temporizador; set => temporizador = value; }
+
 
     private void OnEnable()
     {
@@ -60,7 +62,7 @@ public class ClientController : MonoBehaviour
             {
                 canInteract = false;
                 timeToWaitTable = 0;
-                StopCoroutine("WaitingTable");
+                StopAllCoroutines();
                 temporizador.text = "";
                 Table[] tables = FindObjectsOfType<Table>();
                 foreach (Table table in tables)
@@ -121,7 +123,7 @@ public class ClientController : MonoBehaviour
 
     IEnumerator WaitingTable()
     {
-        timeToWaitTable = Random.Range(15, 31);
+        timeToWaitTable = Random.Range(30,60);
         while(waitForATable && timeToWaitTable > 0)
         {
             temporizador.text = timeToWaitTable.ToString();
@@ -131,7 +133,7 @@ public class ClientController : MonoBehaviour
         if(timeToWaitTable <= 0)
         {
             FindObjectOfType<InstantiateFila>().GetTables();
-            FindObjectOfType<WaiterController>().Chances--;
+            FindObjectOfType<InstantiateFila>().Chances--;
             Destroy(gameObject);
         }
     }
@@ -141,15 +143,17 @@ public class ClientController : MonoBehaviour
         StopAllCoroutines();
     }
 
+
+
     public IEnumerator WaitingToOrder()
     {
-        timeToWaitToOrder = Random.Range(5,11);
-        while(timeToWaitToOrder > 0)
+        timeToWaitToOrder = Random.Range(15, 30);
+        while (timeToWaitToOrder > 0)
         {
             yield return new WaitForSeconds(1f);
             timeToWaitToOrder--;
         }
-        waitToOrder = Random.Range(15, 31);
+        waitToOrder = Random.Range(30,45);
         while (waitToOrder > 0)
         {
             temporizador.text = waitToOrder.ToString();
@@ -160,7 +164,7 @@ public class ClientController : MonoBehaviour
         {
             table.IsEmpty = true;
             FindObjectOfType<InstantiateFila>().GetTables();
-            FindObjectOfType<WaiterController>().Chances--;
+            FindObjectOfType<InstantiateFila>().Chances--;
             Destroy(gameObject);
         }
     }
@@ -178,7 +182,7 @@ public class ClientController : MonoBehaviour
         {
             table.IsEmpty = true;
             FindObjectOfType<InstantiateFila>().GetTables();
-            FindObjectOfType<WaiterController>().Chances--;
+            FindObjectOfType<InstantiateFila>().Chances--;
             Destroy(gameObject);
         }
     }

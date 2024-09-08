@@ -12,6 +12,7 @@ public class Table : MonoBehaviour
     private bool triggering = false;
     private ChefController chef;
     private Coroutine coroutine;
+    [SerializeField] private BoxCollider box;
 
     public bool IsEmpty { get => isEmpty; set => isEmpty = value; }
 
@@ -26,6 +27,10 @@ public class Table : MonoBehaviour
         if (isEmpty)
         {
             flag = 0;
+        }
+        else
+        {
+            box.enabled = true;
         }
         if(flag == 1)
         {
@@ -45,14 +50,15 @@ public class Table : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Client"))
+        if (other.gameObject.CompareTag("Client")) 
         {
             flag = 1;
             client = other.gameObject.GetComponent<ClientController>();
             client.WaitForOrder = true;
-            coroutine = client.StartCoroutine(client.WaitingToOrder());
+            if(coroutine == null)
+                coroutine = client.StartCoroutine(client.WaitingToOrder());
         }
-        if(other.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player") && !isEmpty)
         {
             WaiterController waiter = other.gameObject.GetComponent<WaiterController>();
             waiter.HasAPlate = false;
