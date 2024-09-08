@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Table : MonoBehaviour
 {
-    private bool isEmpty;
+    [SerializeField] private bool isEmpty;
     [SerializeField] private SOReceta[] menu;
     private ClientController client;
     private int flag = 0;
