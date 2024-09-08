@@ -22,7 +22,7 @@ public class ClientController : MonoBehaviour
     private int timeToWaitTable;
     private int timeToWaitToOrder;
     private int waitToOrder = 0;
-    private float speed = 3f;
+    private float speed = 7f;
     public bool WaitForOrder { get => waitForOrder; set => waitForOrder = value; }
     public TMP_Text Text { get => text; set => text = value; }
     public int WaitToOrder { get => waitToOrder; set => waitToOrder = value; }

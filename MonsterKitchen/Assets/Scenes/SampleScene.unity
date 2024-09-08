@@ -539,7 +539,7 @@ Transform:
   m_GameObject: {fileID: 137494048}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.92, y: 0.5, z: 29.099998}
+  m_LocalPosition: {x: 19.1, y: 0.5, z: 29.099998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1053,7 +1053,7 @@ Transform:
   m_GameObject: {fileID: 407221651}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.92, y: 0.5, z: 21.38}
+  m_LocalPosition: {x: 19.1, y: 0.5, z: 21.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2503,7 +2503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 825d4cb7fe1bc934fbcba1b49fa78eec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.895583
+      value: 39.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 825d4cb7fe1bc934fbcba1b49fa78eec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2511,7 +2511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 825d4cb7fe1bc934fbcba1b49fa78eec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.977129
+      value: 24.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 825d4cb7fe1bc934fbcba1b49fa78eec, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2594,7 +2594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13779277232e3b4b982912d6e27c507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMovement: 7
+  speedMovement: 10
   rotationSpeed: 750
   chefInput: {fileID: 1083436385}
   chefController: {fileID: 1083436384}
