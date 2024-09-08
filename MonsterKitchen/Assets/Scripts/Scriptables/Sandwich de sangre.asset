@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sandwich de sangre
   m_EditorClassIdentifier: 
   nameReceta: Sandwich de sangre de dragon
-  ingredient1: Sangre de dragon
+  ingredient1: Pechugas de dragon
   ingredient2: Pulpa de Zombie
   ingredient3: Madera de ataud
-  ingredient4: Sangre de dragon
+  ingredient4: Dientes de vampiro

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameReceta: Ensalada de ojos de bruja
   ingredient1: Ojos de bruja
-  ingredient2: Corazon de victima
-  ingredient3: Piel de muerto
-  ingredient4: Ojos de bruja
+  ingredient2: Hojas de lobo
+  ingredient3: Aceite de troll
+  ingredient4: Huevos de basilisco

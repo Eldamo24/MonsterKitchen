@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sangre de dragon
   m_EditorClassIdentifier: 
   nameReceta: Sangre de dragon al curri
-  ingredient1: Sangre de dragon
+  ingredient1: Pechugas de dragon
   ingredient2: Granitos de tumba
-  ingredient3: Hoja de lobo
-  ingredient4: Sangre de dragon
+  ingredient3: Hojas de lobo
+  ingredient4: Lagrimas de sirena
