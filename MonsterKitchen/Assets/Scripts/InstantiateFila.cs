@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InstantiateFila : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class InstantiateFila : MonoBehaviour
         chancesOnScreen.text = "Chances: " + chances.ToString();
         if (chances <= 0)
         {
-            //Volver al menu
+            SceneManager.LoadScene("Menu");
         }
     }
 
