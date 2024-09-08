@@ -13,22 +13,24 @@ public class PrincipalMenu : MonoBehaviour
 
     public void OnClickStart()
     {
-        buttonStart.SetActive(false);
-        buttonEnd.SetActive(false);
-        videoStart.SetActive(true);
-        VideoPlayer vp = videoStart.GetComponent<VideoPlayer>();
-        image.SetActive(false);
-        vp.loopPointReached += CheckStart;
+        //buttonStart.SetActive(false);
+        //buttonEnd.SetActive(false);
+        //videoStart.SetActive(true);
+        //VideoPlayer vp = videoStart.GetComponent<VideoPlayer>();
+        //image.SetActive(false);
+        //vp.loopPointReached += CheckStart;
+        SceneManager.LoadScene("Level");
     }
 
     public void OnClickExit()
     {
-        buttonStart.SetActive(false);
-        buttonEnd.SetActive(false);
-        videoEnd.SetActive(true);
-        VideoPlayer vp = videoEnd.GetComponent<VideoPlayer>();
-        image.SetActive(false);
-        vp.loopPointReached += CheckEnd;
+        //buttonStart.SetActive(false);
+        //buttonEnd.SetActive(false);
+        //videoEnd.SetActive(true);
+        //VideoPlayer vp = videoEnd.GetComponent<VideoPlayer>();
+        //image.SetActive(false);
+        //vp.loopPointReached += CheckEnd;
+        Application.Quit();
     }
 
     void CheckEnd(VideoPlayer vp)
